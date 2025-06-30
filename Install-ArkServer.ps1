@@ -229,7 +229,7 @@ function Set-ArkServerPorts {
 
         Write-Host "INFO: Opened Inbound TCP Ports ($($ArkPortArrayTxt)) for Ark Server." -ForegroundColor Green
     } catch {
-        Write-Host "ERROR: Unable to create Ark Server startup script at $ArkBatScript." -ForegroundColor Red
+        Write-Host "ERROR: Unable to opened Inbound TCP Ports ($($ArkPortArrayTxt)) for Ark Server." -ForegroundColor Red
     }
     # Set inbound UDP ports using $ArkPortArray
     try {
@@ -243,7 +243,7 @@ function Set-ArkServerPorts {
 
         Write-Host "INFO: Opened Inbound UDP Ports ($($ArkPortArrayTxt)) for Ark Server." -ForegroundColor Green
     } catch {
-        Write-Host "ERROR: Unable to create Ark Server startup script at $ArkBatScript." -ForegroundColor Red
+        Write-Host "ERROR: Unable to opened Inbound UDP Ports ($($ArkPortArrayTxt)) for Ark Server." -ForegroundColor Red
     }
     # Set outbound TCP ports using $ArkPortArray
     try {
@@ -257,7 +257,7 @@ function Set-ArkServerPorts {
 
         Write-Host "INFO: Opened Outbound TCP Ports ($($ArkPortArrayTxt)) for Ark Server." -ForegroundColor Green
     } catch {
-        Write-Host "ERROR: Unable to create Ark Server startup script at $ArkBatScript." -ForegroundColor Red
+        Write-Host "ERROR: Unable to opened Outbound TCP Ports ($($ArkPortArrayTxt)) for Ark Server." -ForegroundColor Red
     }
     # Set outbound UDP ports using $ArkPortArray
     try {
@@ -271,7 +271,7 @@ function Set-ArkServerPorts {
         
         Write-Host "INFO: Opened Outbound UDP Ports ($($ArkPortArrayTxt)) for Ark Server." -ForegroundColor Green
     } catch {
-        Write-Host "ERROR: Unable to create Ark Server startup script at $ArkBatScript." -ForegroundColor Red
+        Write-Host "ERROR: Unable to opened Outbound UDP Ports ($($ArkPortArrayTxt)) for Ark Server." -ForegroundColor Red
     }
 }
 
