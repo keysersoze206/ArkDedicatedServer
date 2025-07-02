@@ -1,5 +1,11 @@
 ﻿#Requires -RunAsAdministrator
 
+# OS Check
+if (-not ((Get-WmiObject Win32_OperatingSystem).Caption -Match "Windows 10|11")) {
+    Write-Host "ERROR: Please use Windows 10 or 11 for installation." -ForegroundColor Red
+    Exit
+}
+
 # Steam Variables
 $SteamCmdUri = "https://steamcdn-a.akamaihd.net/client/installer/steamcmd.zip"
 $SteamCmdDir = "C:\SteamCMD"
@@ -144,7 +150,7 @@ if (Test-Path $SteamCmdExe) {
         Write-Host "DONE: SteamCMD extracted to $SteamCmdExe." -ForegroundColor Green
     } catch {
         Write-Host "ERROR: Encountered problem downloading and installing SteamCMD." -ForegroundColor Red
-        Break
+        Exit
     }
 }
 
@@ -163,13 +169,13 @@ try {
     & $SteamCmdExe "+force_install_dir $($ArkServerDir)" "+login anonymous" "+app_update $($ArkAppID) validate" "+quit"
 } catch {
     Write-Host "ERROR: Unable to launch $SteamCmdExe." -ForegroundColor Red
-    Break
+    Exit
 }
 
 # Create Ark Server Startup Script
 if (-not (Test-Path $ArkBatDir)) {
     Write-Host "ERROR: Ark Server did not install correctly from SteamCMD. Check logs or try again." -ForegroundColor Red
-    Break
+    Exit
 }
 
 # Function to create $ArkBatScript based on $StartupScript heredoc generated above
@@ -180,7 +186,7 @@ function Create-ArkBatScript {
     }
     catch {
         Write-Host "ERROR: Unable to create Ark Server startup script at $ArkBatScript." -ForegroundColor Red
-        Break
+        Exit
     }
 }
 
