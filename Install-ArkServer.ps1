@@ -1,4 +1,6 @@
-﻿# Steam Variables
+﻿#Requires -RunAsAdministrator
+
+# Steam Variables
 $SteamCmdUri = "https://steamcdn-a.akamaihd.net/client/installer/steamcmd.zip"
 $SteamCmdDir = "C:\SteamCMD"
 $SteamCmdExe = $SteamCmdDir + "\" + "steamcmd.exe"
@@ -229,7 +231,7 @@ function Set-ArkServerPorts {
 
         Write-Host "INFO: Opened Inbound TCP Ports ($($ArkPortArrayTxt)) for Ark Server." -ForegroundColor Green
     } catch {
-        Write-Host "ERROR: Unable to opened Inbound TCP Ports ($($ArkPortArrayTxt)) for Ark Server." -ForegroundColor Red
+        Write-Host "ERROR: Unable to open Inbound TCP Ports ($($ArkPortArrayTxt)) for Ark Server." -ForegroundColor Red
     }
     # Set inbound UDP ports using $ArkPortArray
     try {
@@ -243,7 +245,7 @@ function Set-ArkServerPorts {
 
         Write-Host "INFO: Opened Inbound UDP Ports ($($ArkPortArrayTxt)) for Ark Server." -ForegroundColor Green
     } catch {
-        Write-Host "ERROR: Unable to opened Inbound UDP Ports ($($ArkPortArrayTxt)) for Ark Server." -ForegroundColor Red
+        Write-Host "ERROR: Unable to open Inbound UDP Ports ($($ArkPortArrayTxt)) for Ark Server." -ForegroundColor Red
     }
     # Set outbound TCP ports using $ArkPortArray
     try {
@@ -257,7 +259,7 @@ function Set-ArkServerPorts {
 
         Write-Host "INFO: Opened Outbound TCP Ports ($($ArkPortArrayTxt)) for Ark Server." -ForegroundColor Green
     } catch {
-        Write-Host "ERROR: Unable to opened Outbound TCP Ports ($($ArkPortArrayTxt)) for Ark Server." -ForegroundColor Red
+        Write-Host "ERROR: Unable to open Outbound TCP Ports ($($ArkPortArrayTxt)) for Ark Server." -ForegroundColor Red
     }
     # Set outbound UDP ports using $ArkPortArray
     try {
@@ -271,7 +273,7 @@ function Set-ArkServerPorts {
         
         Write-Host "INFO: Opened Outbound UDP Ports ($($ArkPortArrayTxt)) for Ark Server." -ForegroundColor Green
     } catch {
-        Write-Host "ERROR: Unable to opened Outbound UDP Ports ($($ArkPortArrayTxt)) for Ark Server." -ForegroundColor Red
+        Write-Host "ERROR: Unable to open Outbound UDP Ports ($($ArkPortArrayTxt)) for Ark Server." -ForegroundColor Red
     }
 }
 
